@@ -3,7 +3,7 @@ regions:
   - us-east-1
 filters:
   instance-state-name: running
-  tag:Environment: Demo
+  tag:Environment: tk-ansible-demo
 keyed_groups:
   - key: tags.Role
     prefix: role
