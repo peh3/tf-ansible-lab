@@ -1,0 +1,27 @@
+---
+- name: Day 1 Operations on Managed EC2 Instance
+  hosts: role_webserver
+  become: true
+  tasks:
+    - name: Update DNF cache & packages
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Install Nginx web server
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deploy custom Day 1 landing page
+      ansible.builtin.copy:
+        content: "<h1>Managed Node Provisioned Successfully via Ansible Control Server!</h1>\n"
+        dest: /usr/share/nginx/html/index.html
+        mode: '0644'
