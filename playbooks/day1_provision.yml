@@ -1,6 +1,6 @@
 ---
 - name: Day 1 Operations on Managed EC2 Instance
-  hosts: role_webserver
+  hosts: role_tk_ansible_demo_webserver
   become: true
   tasks:
     - name: Update DNF cache & packages
