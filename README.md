@@ -3,6 +3,7 @@
 sudo tail -f /var/log/cloud-init-output.log
 
 cd ~/ansible-demo-lab
+
 ansible-inventory -i inventory/aws_ec2.yml --graph
 
 
